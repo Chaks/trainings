@@ -28,7 +28,7 @@ public class JAXWSStaticClient {
     //System.out.println("getWeather(): " + globalWeatherSoap.getWeather("Bombay", "India"));
 
     //http://www.webservicex.net/globalweather.asmx?WSDL
-    //Change the address of WSDL
+    //Changing the address of WSDL
     QName qName = new QName("http://www.webserviceX.NET", "GlobalWeather");
     GlobalWeather globalWeather1 = new GlobalWeather(new URL("http://localhost:6789/globalweather.asmx?WSDL"), qName);
     GlobalWeatherSoap globalWeatherSoap1 = globalWeather1.getGlobalWeatherSoap();
