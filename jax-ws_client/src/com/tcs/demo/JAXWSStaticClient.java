@@ -4,6 +4,7 @@
  */
 package com.tcs.demo;
 
+import com.sun.xml.internal.ws.client.BindingProviderProperties;
 import com.tcs.demo.service.GlobalWeather;
 import com.tcs.demo.service.GlobalWeatherSoap;
 import java.net.MalformedURLException;
@@ -24,8 +25,9 @@ public class JAXWSStaticClient {
     //Changing the address of the service via stub
     ((BindingProvider) globalWeatherSoap).getRequestContext().put(
             BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:6789/globalweather.asmx");
-    //System.out.println("getCitiesByCountry(): " + globalWeatherSoap.getCitiesByCountry("India"));
-    //System.out.println("getWeather(): " + globalWeatherSoap.getWeather("Bombay", "India"));
+    
+    System.out.println("getCitiesByCountry(): " + globalWeatherSoap.getCitiesByCountry("India"));
+    System.out.println("getWeather(): " + globalWeatherSoap.getWeather("Bombay", "India"));
 
     //http://www.webservicex.net/globalweather.asmx?WSDL
     //Changing the address of WSDL
