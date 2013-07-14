@@ -4,7 +4,6 @@
  */
 package com.tcs.demo;
 
-import com.sun.xml.internal.ws.client.BindingProviderProperties;
 import com.tcs.demo.service.GlobalWeather;
 import com.tcs.demo.service.GlobalWeatherSoap;
 import java.net.MalformedURLException;
