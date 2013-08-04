@@ -30,7 +30,7 @@ public class XPathDemo {
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder docBuilder = factory.newDocumentBuilder();
 
-	Document doc = docBuilder.parse(new File("src/sdn1.xml"));
+	Document doc = docBuilder.parse(new File("src/sdn.xml"));
 
 	XPath xPath = XPathFactory.newInstance().newXPath();
 	//Print all the first and last names
@@ -60,11 +60,18 @@ public class XPathDemo {
 	  System.out.println("" + addressNodeList.item(i).getNodeName() + ">>>>>" + addressNodeList.item(i).getTextContent());
 	}
 
-	//Search for India in sdnEntry
-	Object indiaResult = xPath.compile("/sdnList/sdnEntry/addressList/address//*[contains(text(),'India')]").evaluate(doc, XPathConstants.NODESET);
-	NodeList indiaNodeList = (NodeList) indiaResult;
-	for (int i = 0; i < indiaNodeList.getLength(); i++) {
-	  System.out.println("???" + indiaNodeList.item(i).getNodeName() + ">>>>>" + indiaNodeList.item(i).getTextContent());
+	//Search for all the programs that are of sdnType 'Entity'
+	Object entityTypeResult = xPath.compile("/sdnList/sdnEntry/sdnType[contains(.,'Entity')]/../programList/program/text()").evaluate(doc, XPathConstants.NODESET);
+	NodeList entityTypeNodeList = (NodeList) entityTypeResult;
+	for (int i = 0; i < entityTypeNodeList.getLength(); i++) {
+	  System.out.println("sdnType (Entity) program => " + entityTypeNodeList.item(i).getNodeName() + ">>>>>" + entityTypeNodeList.item(i).getTextContent());
+	}
+
+	//Search for all the sdnType's
+	Object sdnTypeResult = xPath.compile("/sdnList/sdnEntry/sdnType[not(contains(.,'Entity'))]/text()").evaluate(doc, XPathConstants.NODESET);
+	NodeList sdnTypeNodeList = (NodeList) sdnTypeResult;
+	for (int i = 0; i < sdnTypeNodeList.getLength(); i++) {
+	  System.out.println("sdnType => " + sdnTypeNodeList.item(i).getNodeName() + ">>>>>" + sdnTypeNodeList.item(i).getTextContent());
 	}
   }
 }
