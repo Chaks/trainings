@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="OFACSDN" resourceRoot="" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="OFACSDNImplServiceSoapBinding" type="wsdl" bindingName="{http://demo.tcs.com/}OFACSDNImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:40656/SecuredWebServiceProvider/OFACSDN?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:40656/SecuredWebServiceProvider/OFACSDN?wsdl"><con:part><con:url>http://localhost:40656/SecuredWebServiceProvider/OFACSDN?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="OFACSDNImplService" targetNamespace="http://demo.tcs.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://demo.tcs.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:import location="http://localhost:40656/SecuredWebServiceProvider/OFACSDN?wsdl=OFACSDNSoap.wsdl" namespace="http://www.webservicex.net/"></wsdl:import>
+  <wsdl:binding name="OFACSDNImplServiceSoapBinding" type="ns1:OFACSDNSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="IsSDNAndBlockedPersons">
+      <soap:operation soapAction="http://www.webservicex.net/IsSDNAndBlockedPersons" style="document"/>
+      <wsdl:input name="IsSDNAndBlockedPersons">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IsSDNAndBlockedPersonsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OFACSDNImplService">
+    <wsdl:port binding="tns:OFACSDNImplServiceSoapBinding" name="OFACSDNImplPort">
+      <soap:address location="http://localhost:40656/SecuredWebServiceProvider/OFACSDN"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:40656/SecuredWebServiceProvider/OFACSDN?wsdl=OFACSDNSoap.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="OFACSDNSoap" targetNamespace="http://www.webservicex.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.webservicex.net/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.webservicex.net/">
+      <xs:element name="IsSDNAndBlockedPersons">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Names" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsSDNAndBlockedPersonsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IsSDNAndBlockedPersonsResult" type="xs:boolean"/>
+            <xs:element name="SDNLists" type="tns:SDNList"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SDNList">
+        <xs:sequence>
+          <xs:element name="TotalRecords" type="xs:int"/>
+          <xs:element minOccurs="0" name="SDNLists" type="tns:ArrayOfSDN"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfSDN">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="SDN" type="tns:SDN"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SDN">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UniqueRecord" type="xs:string"/>
+          <xs:element minOccurs="0" name="NameOfSDN" type="xs:string"/>
+          <xs:element minOccurs="0" name="TypeOfSDN" type="xs:string"/>
+          <xs:element minOccurs="0" name="SanctionsProgramName" type="xs:string"/>
+          <xs:element minOccurs="0" name="TitleOfAnIndividual" type="xs:string"/>
+          <xs:element minOccurs="0" name="VesselCallSign" type="xs:string"/>
+          <xs:element minOccurs="0" name="VesselType" type="xs:string"/>
+          <xs:element minOccurs="0" name="VesselTonnage" type="xs:string"/>
+          <xs:element minOccurs="0" name="GrossRegisteredTonnage" type="xs:string"/>
+          <xs:element minOccurs="0" name="VesselFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="VesselOwner" type="xs:string"/>
+          <xs:element minOccurs="0" name="RemarksOnSDN" type="xs:string"/>
+          <xs:element minOccurs="0" name="StreetAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="City" type="xs:string"/>
+          <xs:element minOccurs="0" name="Country" type="xs:string"/>
+          <xs:element minOccurs="0" name="RemarksOnAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="TypeOfAlternateIdentity" type="xs:string"/>
+          <xs:element minOccurs="0" name="AlternateIdentityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="RemarksOnAlternative" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IsSDNAndBlockedPersons">
+    <wsdl:part element="ns1:IsSDNAndBlockedPersons" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsSDNAndBlockedPersonsResponse">
+    <wsdl:part element="ns1:IsSDNAndBlockedPersonsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OFACSDNSoap">
+    <wsdl:operation name="IsSDNAndBlockedPersons">
+      <wsdl:input message="ns1:IsSDNAndBlockedPersons" name="IsSDNAndBlockedPersons"></wsdl:input>
+      <wsdl:output message="ns1:IsSDNAndBlockedPersonsResponse" name="IsSDNAndBlockedPersonsResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:40656/SecuredWebServiceProvider/OFACSDN</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.webservicex.net/IsSDNAndBlockedPersons" name="IsSDNAndBlockedPersons" bindingOperationName="IsSDNAndBlockedPersons" type="Request-Response" outputName="IsSDNAndBlockedPersonsResponse" inputName="IsSDNAndBlockedPersons" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1" outgoingWss="sign_encrypt"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:40656/SecuredWebServiceProvider/OFACSDN</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:IsSDNAndBlockedPersons>
+         <web:Names>XYZ</web:Names>
+      </web:IsSDNAndBlockedPersons>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/IsSDNAndBlockedPersons"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>C:/Users/Chakravarthi/Documents/GitHub/trainings/soapui/client-keystore.jks</con:source><con:password>clientpass</con:password><con:type>KEYSTORE</con:type></con:crypto><con:crypto><con:source>C:/Users/Chakravarthi/Documents/GitHub/trainings/soapui/client-truststore.jks</con:source><con:password>servercerpass</con:password><con:type>KEYSTORE</con:type></con:crypto><con:outgoing mustUnderstand="true"><con:name>sign_encrypt</con:name><con:username/><con:password/><con:entry type="Timestamp"><con:configuration><timeToLive>60000</timeToLive><strictTimestamp>true</strictTimestamp></con:configuration></con:entry><con:entry type="Signature" username="client" password="client123"><con:configuration><crypto>client-keystore.jks</crypto><keyIdentifierType>0</keyIdentifierType><signatureAlgorithm>http://www.w3.org/2000/09/xmldsig#rsa-sha1</signatureAlgorithm><signatureCanonicalization>http://www.w3.org/2001/10/xml-exc-c14n#</signatureCanonicalization><useSingleCert>false</useSingleCert><digestAlgorithm>http://www.w3.org/2000/09/xmldsig#sha1</digestAlgorithm><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="enc" value="Element"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+</xml-fragment>]]></signaturePart><signaturePart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Body"/>
+  <con:entry key="enc" value="Element"/>
+  <con:entry key="namespace" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+</xml-fragment>]]></signaturePart></con:configuration></con:entry><con:entry type="Encryption" username="servercer" password=""><con:configuration><crypto>client-truststore.jks</crypto><keyIdentifierType>0</keyIdentifierType><symmetricEncAlgorithm>http://www.w3.org/2001/04/xmlenc#tripledes-cbc</symmetricEncAlgorithm><encKeyTransport>http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p</encKeyTransport><embeddedKeyName/><embeddedKeyPassword/><encryptionCanonicalization/><encryptSymmetricKey>true</encryptSymmetricKey><encryptionPart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Timestamp"/>
+  <con:entry key="enc" value="Element"/>
+  <con:entry key="namespace" value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+</xml-fragment>]]></encryptionPart><encryptionPart><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="id" value=""/>
+  <con:entry key="name" value="Body"/>
+  <con:entry key="enc" value="Content"/>
+  <con:entry key="namespace" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+</xml-fragment>]]></encryptionPart></con:configuration></con:entry></con:outgoing></con:wssContainer><con:sensitiveInformation/></con:soapui-project>
