@@ -1,0 +1,14 @@
+***** client *****
+key
+	clientpass 		(store)
+	client123  	    (client alias)
+	
+trust
+	servercerpass
+***** server *****
+key
+	serverpass 		(store)
+	server123  	    (server alias)
+	
+trust
+	clientcerpass
