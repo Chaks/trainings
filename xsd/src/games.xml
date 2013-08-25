@@ -1,0 +1,17 @@
+
+<!-- Source - Web Service Contract Design and Versioning for SOA -->
+<games xmlns="http://actioncon.com/schema/gameinfo">
+  <game>
+    <productID>AY2344</productID>
+    <gtin>1234567890123</gtin>
+    <title>Service Blaster 2000</title>
+    <desc>This is a great game.</desc>
+    <esrbRating>M</esrbRating>
+    <msrPrice>29.99</msrPrice>
+    <numberOfPlayers>
+      <minimum>1</minimum>
+      <maximum>4</maximum>
+    </numberOfPlayers>
+  </game>
+<!-- more games here -->
+</games>
