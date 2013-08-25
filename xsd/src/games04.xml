@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : games04.xml
+    Created on : 25 August, 2013, 7:27 PM
+    Author     : Chakravarthi
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns0:game  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns0='http://actioncon.com/schema/gameinfo'
+   xsi:schemaLocation='http://actioncon.com/schema/gameinfo games04.xsd' ns0:productID="">
+  <ns0:gtin></ns0:gtin>
+  <ns0:title></ns0:title>
+
+</ns0:game>

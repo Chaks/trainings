@@ -1,0 +1,16 @@
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://actioncon.com/schema/gameinfo"
+xmlns="http://actioncon.com/schema/gameinfo">
+  <xsd:element name="game" type="GameType"/>
+  <xsd:element name="gtin" type="xsd:int"/>
+  <xsd:element name="title" type="xsd:string"/>
+  <xsd:complexType name="GameType">
+    <xsd:sequence>
+      <xsd:element ref="gtin"/>
+      <xsd:element ref="title"/>
+    </xsd:sequence>
+    <xsd:attribute ref="productID"/>
+  </xsd:complexType>
+  <xsd:attribute name="productID" type="xsd:string"/>
+</xsd:schema>
