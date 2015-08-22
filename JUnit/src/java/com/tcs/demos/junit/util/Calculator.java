@@ -17,7 +17,7 @@ public class Calculator {
   private static final String DIVIDE = "/";
 
   public Integer cal(Integer op1, Integer op2, String opr) {
-    if (null != opr) {
+    if (null != opr && !"".equals(opr)) {
       switch (opr) {
         case PLUS:
           return add(op1, op2);
