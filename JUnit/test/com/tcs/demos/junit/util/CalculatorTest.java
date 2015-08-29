@@ -18,16 +18,15 @@ import org.junit.Test;
  */
 public class CalculatorTest {
 
+  private Calculator instance;
+
   @BeforeClass
   public static void setUpClass() {
   }
 
-  @AfterClass
-  public static void tearDownClass() {
-  }
-
   @Before
   public void setUp() {
+    instance = new Calculator();
   }
 
   @Test
@@ -35,7 +34,6 @@ public class CalculatorTest {
     Integer op1 = 5;
     Integer op2 = 10;
     String opr = "+";
-    Calculator instance = new Calculator();
     Integer expResult = 15;
     Integer result = instance.cal(op1, op2, opr);
     Assert.assertEquals(expResult, result);
@@ -46,7 +44,6 @@ public class CalculatorTest {
     Integer op1 = 1233;
     Integer op2 = 233;
     String opr = "-";
-    Calculator instance = new Calculator();
     Integer expResult = 1000;
     Integer result = instance.cal(op1, op2, opr);
     Assert.assertEquals(expResult, result);
@@ -57,7 +54,6 @@ public class CalculatorTest {
     Integer op1 = 5;
     Integer op2 = 10;
     String opr = "*";
-    Calculator instance = new Calculator();
     Integer expResult = 50;
     Integer result = instance.cal(op1, op2, opr);
     Assert.assertEquals(expResult, result);
@@ -68,10 +64,13 @@ public class CalculatorTest {
     Integer op1 = 500;
     Integer op2 = 10;
     String opr = "/";
-    Calculator instance = new Calculator();
     Integer expResult = 50;
     Integer result = instance.cal(op1, op2, opr);
     Assert.assertEquals(expResult, result);
+  }
+
+  @AfterClass
+  public static void tearDownClass() {
   }
 
   @After
